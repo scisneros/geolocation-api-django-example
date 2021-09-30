@@ -11,10 +11,10 @@
 
     <p>Lat: <span id="lat-span">--</span></p>
     <p>Lon: <span id="lon-span">--</span></p>
-    <p id="info"></p>
+    <p id="info">-</p>
 
-    <button type="button" onclick="getLocation()">Solicitar ubicación</button>
-    <button type="button" onclick="saveLocation()">Guardar ubicación</button>
+    <button type="button" onclick="getLocation()">Get location</button>
+    <button type="button" onclick="saveLocation()">Save location</button>
 
     <p>Saved locations:</p>
     {% for location in locations %}
