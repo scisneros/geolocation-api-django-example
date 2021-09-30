@@ -12,9 +12,22 @@
     <p>Lat: <span id="lat-span">--</span></p>
     <p>Lon: <span id="lon-span">--</span></p>
     <p id="info"></p>
-    
+
     <button type="button" onclick="getLocation()">Solicitar ubicación</button>
-    
+    <button type="button" onclick="saveLocation()">Guardar ubicación</button>
+
+    <p>Saved locations:</p>
+    {% for location in locations %}
+    <p>{{ location.date_obtained }}: {{ location.lat }}, {{ location.lon }}</p>
+    {% endfor %}
+
+    <!-- Este es un form falso usado para mandar un POST con la data -->
+    <form id="location-form" method="POST" hidden>
+        {% csrf_token %}
+        <input id="lat-input" type="hidden" name="lat">
+        <input id="lon-input" type="hidden" name="lon">
+    </form>
+
     <!-- Esta línea linkea el Javascript con el template -->
     <script src="static/js/scripts.js"></script>
 </body>
