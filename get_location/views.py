@@ -5,10 +5,9 @@ from .models import Location
 
 def index(request):
     if request.method == "GET":
-        print(Location.objects.all())
         return render(request, "index.html", {"locations": Location.objects.all()})
 
     if request.method == "POST":
         new_location = Location(lat=request.POST["lat"], lon=request.POST["lon"])
-        new_location.save()  # guardar la tarea en la base de datos.
+        new_location.save()
         return redirect("/")
